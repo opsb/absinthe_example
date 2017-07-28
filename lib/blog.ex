@@ -6,9 +6,12 @@ defmodule Blog do
   def start(_type, _args) do
     import Supervisor.Spec, warn: false
 
+    PhoenixCowboyLogging.enable_for(:blog, __MODULE__.Endpoint)
+
     children = [
       # Start the endpoint when the application starts
       supervisor(Blog.Endpoint, []),
+      supervisor(Absinthe.Subscription, [Blog.Endpoint]),
       # Start the Ecto repository
       supervisor(Blog.Repo, []),
       # Here you could define other workers and supervisors as children

@@ -1,5 +1,8 @@
 defmodule Blog.Endpoint do
   use Phoenix.Endpoint, otp_app: :blog
+  use Absinthe.Phoenix.Endpoint
+
+  socket "/socket", Blog.UserSocket
 
   plug Plug.Static,
     at: "/", from: :blog, gzip: false,

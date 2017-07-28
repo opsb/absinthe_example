@@ -49,4 +49,16 @@ defmodule Blog.Schema do
       resolve &Resolver.User.create/3
     end
   end
+
+  subscription do
+    field :post_added, :post do
+      trigger :create_post, topic: fn post ->
+        "all"
+      end
+
+      topic fn args ->
+        "all"
+      end
+    end
+  end
 end

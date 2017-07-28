@@ -7,7 +7,7 @@ use Mix.Config
 
 config :blog,
   ecto_repos: [Blog.Repo]
-  
+
 # Configures the endpoint
 config :blog, Blog.Endpoint,
   url: [host: "localhost"],
@@ -30,3 +30,5 @@ import_config "#{Mix.env}.exs"
 config :phoenix, :generators,
   migration: true,
   binary_id: false
+
+config :cors_plug, methods: ["*"]

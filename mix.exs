@@ -32,12 +32,13 @@ defmodule Blog.Mixfile do
     [{:phoenix, "~> 1.2.1"},
      {:phoenix_pubsub, "~> 1.0"},
      {:phoenix_ecto, "~> 3.0"},
-     {:absinthe, "~> 1.2.0-rc.0", override: true},
-     {:absinthe_plug, "~> 1.2.0-rc.0"},
+     {:absinthe_phoenix, github: "absinthe-graphql/absinthe_phoenix", branch: "master"},
+     {:absinthe_plug, "~> 1.4.0-beta.1"},
      {:postgrex, ">= 0.0.0"},
      {:cors_plug, ">= 0.0.0"},
      {:timex, ">= 0.0.0"},
-     {:cowboy, "~> 1.0"}]
+     {:cowboy, "~> 1.0"},
+     {:phoenix_cowboy_logging, "~> 1.0"}]
   end
 
 end
